@@ -5,7 +5,7 @@ admin.autodiscover()
 from feedback.views import handle_ajax
 
 urlpatterns = patterns('',
-        (r'^ajax(?P<url>.*)$', handle_ajax)
+        (r'^ajax$', handle_ajax)
     )
 
 # vim: et sw=4 sts=4
