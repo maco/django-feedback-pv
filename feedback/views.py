@@ -49,12 +49,14 @@ def handle_ajax(request):
 	   	    pass
 		
 	   mail_managers('Feedback: ' + (f.text[0:20] if f.subject.strip() == "" else f.subject), 
-		 'From: %s \n\n %s \n\n %s' % 
+		 'From: %s \n\n %s \n\n' % 
 			(frominfo,
 			 f.text,
-			 getattr(settings, 'SITE_ROOT_URL', "http://" + request.META["SERVER_NAME"]) + reverse('admin:feedback_feedback_change', args=[f.id])),
+			 #getattr(settings, 'SITE_ROOT_URL', "http://" + request.META["SERVER_NAME"]) + reverse('admin:feedback_feedback_change', args=[f.id])
+			 ),
 			 fail_silently=True)
 	   return HttpResponse(json.dumps({}))
    except Exception, e:
-      print e
+      import sys
+      sys.stderr.write(str(e)+"\n")
       return HttpResponse(json.dumps({"error": str(e)}))
