@@ -7,9 +7,8 @@ user to fill.
 Usage:
 ---------
 
-Add 'feedback' to your site's list of apps and optionally set these variables in settings.py:
+Add 'feedback' to your site's list of apps and optionally set:
 
-	SITE_ROOT_URL = "http://www.example.com"
 	EMAIL_SUBJECT_PREFIX = "[SITENAME] "
 
 Run python manage.py syncdb to create the new table.
