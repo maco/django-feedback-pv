@@ -12,8 +12,9 @@
 }
 
 #feedback_button.white {
-    background-color:#AAA;
+/*    background-color:#AAA;
     border:1px solid #999;
+*/    
 }
 
 #feedback_button.black {
@@ -28,9 +29,8 @@
 }
 
 #feedback_button.normal {
-    height:150px;
-    width:25px;
-    margin-top:-75px;
+    height: 102px;
+    width: 25px;
 }
 
 #feedback_button.left {
@@ -44,8 +44,14 @@
 }
 
 #feedback_button.white.left.normal {
-    background-image:url(images/feedback_wl.png);
+    background: url(images/b_feedback.png) left top no-repeat;
 }
+
+	#feedback_button.white.left.normal:hover {
+		background-position: left bottom;
+		cursor: pointer;
+		}
+		
 #feedback_button.white.left.small {
     background-image:url(images/feedback_wl_sm.png);
 }
