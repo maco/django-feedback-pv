@@ -9,6 +9,7 @@ the user to fill. The changes from jabapyth/django-feedback are as follows:
 * Store additional information in the database including the user if logged in and the full REQUEST object.
 * Give the user his own email address as a default if he is logged in.
 * Have the email also include information about the logged in user from get_profile().
+* Refined the feedback tab image.
 * Other cleanup.
 
 
