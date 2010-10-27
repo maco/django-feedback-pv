@@ -54,7 +54,7 @@ def handle_ajax(request):
 			 f.text,
 			 #getattr(settings, 'SITE_ROOT_URL', "http://" + request.META["SERVER_NAME"]) + reverse('admin:feedback_feedback_change', args=[f.id])
 			 ),
-			 fail_silently=True)
+			 fail_silently=False)
 	   return HttpResponse(json.dumps({}))
    except Exception, e:
       import sys
