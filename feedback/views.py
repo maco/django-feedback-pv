@@ -7,6 +7,7 @@ from django.core.urlresolvers import reverse
 from django.core.validators import validate_email
 
 import json
+
 from feedback.models import *
 
 import settings
@@ -19,6 +20,9 @@ def handle_ajax(request):
    if not request.POST:
       return HttpResponse(json.dumps({'error':'no post recieved'}))
    try:
+	   if request.POST["body"].strip() != "...":
+	   	   return HttpResponse(json.dumps({'errors':{'text': ['Sorry your browser failed the honeypot test.']}}))
+		   
 	   if request.POST["text"].strip() == "":
 	   	   return HttpResponse(json.dumps({'errors':{'text': ['This field is required.']}}))
 	   
