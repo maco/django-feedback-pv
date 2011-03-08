@@ -21,5 +21,5 @@ class Feedback(models.Model):
         ordering = ["-created"]
 
     def __unicode__(self):
-        return u'%s: %s' % (self.url, self.subject)
+        return u'%s: %s: %s' % (self.created, self.url, self.subject)
 

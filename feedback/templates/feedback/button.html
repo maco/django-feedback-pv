@@ -2,7 +2,11 @@
 <div class="hiding">
 <div id="feedback_popup" class="colorbox" style="width: 500px">
     <h1>Feedback</h1>
-    <p style="margin-bottom: 0">We would be happy to consider any feedback you have.</p>
+	{% if not feedback_text %}
+    	<p style="margin-bottom: 0">We would be happy to consider any feedback you have.</p>
+	{% else %}
+		{{feedback_text}}
+	{% endif %}
     <form class="feedback" action="{% url feedback.views.handle_ajax %}" method="POST" style="margin: 0">
         <div style="display: none"><input name="body" value="..."/></div>
         <label for="email">email (optional)</label>
