@@ -79,12 +79,9 @@ div.hiding {
     display:none;
 }
 
-#feedback_popup.thanks {
+#feedback_popup .thanks {
     font-size: 14px;
     font-weight: bold;
-}
-
-#feedback_popup .thanks {
     display:none;
     margin-top: 1em;
 }
