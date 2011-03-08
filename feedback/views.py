@@ -6,6 +6,7 @@ from django.core.mail import mail_managers
 from django.core.urlresolvers import reverse
 from django.core.validators import validate_email
 
+import re
 import json
 
 from feedback.models import *
@@ -20,7 +21,7 @@ def handle_ajax(request):
    if not request.POST:
       return HttpResponse(json.dumps({'error':'no post recieved'}))
    try:
-	   if request.POST["body"].strip() != "...":
+	   if not "body" in request.POST or request.POST["body"].strip() != "...":
 	   	   return HttpResponse(json.dumps({'errors':{'text': ['Sorry your browser failed the honeypot test.']}}))
 		   
 	   if request.POST["text"].strip() == "":
@@ -29,7 +30,7 @@ def handle_ajax(request):
 	   f = Feedback()
 	   f.site = Site.objects.get_current()
 	   f.url = request.META.get("HTTP_REFERER", "")
-	   f.subject = request.POST["subject"]
+	   f.subject = re.sub(r"\s", " ", request.POST["subject"])
 	   f.email = request.POST["email"]
 	   f.text = request.POST["text"]
 	   f.user =  None if request.user.is_anonymous() else request.user
@@ -52,7 +53,7 @@ def handle_ajax(request):
 	      except:
 	   	    pass
 		
-	   mail_managers('Feedback: ' + (f.text[0:20] if f.subject.strip() == "" else f.subject), 
+	   mail_managers('Feedback: ' + (re.sub(r"\s", " ", f.text[0:20]) if f.subject.strip() == "" else f.subject), 
 		 'From: %s \n\n %s \n\n' % 
 			(frominfo,
 			 f.text,
