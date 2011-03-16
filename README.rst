@@ -1,6 +1,7 @@
-Django Feedback App
-===================
-Based on jabapyth/django-feedback but significantly overhauled.
+Django Feedback App by POPVOX (django-feedback-pv)
+==================================================
+
+Based on https://github.com/jabapyth/django-feedback but significantly overhauled.
 
 This app creates an ajax "feedback" button on your site, which pops up a form for
 the user to fill in. The changes from jabapyth/django-feedback are as follows:
@@ -41,3 +42,19 @@ should be exposed as /media/feedback.
 Feedback will be stored into the database and also emailed to the email addresses
 listed in the MANAGERS setting.
 
+---
+
+Copyright (C) 2011 POPVOX.com
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
