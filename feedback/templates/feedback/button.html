@@ -7,7 +7,7 @@
 	{% else %}
 		{{feedback_text}}
 	{% endif %}
-    <form class="feedback" action="{% url feedback.views.handle_ajax %}" method="POST" style="margin: 0">
+    <form class="feedback" action="{% url feedback.views.handle_ajax %}" method="POST" style="margin: 0">{% csrf_token %}
         <div style="display: none"><input name="body" value="..."/></div>
         <label for="email">email (optional)</label>
             <input name="email" value="{{user.email}}"/>
