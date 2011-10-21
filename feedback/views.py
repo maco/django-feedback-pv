@@ -36,7 +36,11 @@ def handle_ajax(request):
         f.email = request.POST["email"]
         f.text = request.POST["text"]
         f.user =  None if request.user.is_anonymous() else request.user
-        f.request = repr(request)[0:Feedback.REQUEST_MAX_LEN]
+
+        request_info = ""
+        for key in ("HTTP_HOST", "REQUEST_URI", "HTTP_REFERER", "REMOTE_ADDR", "HTTP_USER_AGENT", "HTTP_COOKIE"):
+            request_info += key + ": " + request.META.get(key, "") + "\n"
+        f.request = request_info[0:Feedback.REQUEST_MAX_LEN]
 
         try:
             if f.email.strip() != "":
