@@ -6,15 +6,15 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
-    name='django-feedback',
-    version='0.4',
+    name='django-feedback-pv',
+    version='0.5',
     description='A pluggable user feedback app',
-    author='Jared Forsyth',
-    author_email='jabapyth@gmail.com',
-    license='BSD',
-    url='http://github.com/jabapyth/django-feedback/',
-    keywords = ['blog', 'django', 'feedback', 'ajax', 'user', 'customer', 'comment'],
-    package_data = {'feedback':['media/*.js','media/*.css','media/images/*','CREDITS']},
+    author='POPVOX.com',
+    author_email='info@popvox.com',
+    license='GNU Affero General Public License',
+    url='https://github.com/tauberer/django-feedback-pv',
+    keywords = ['django', 'feedback', 'ajax', 'user', 'customer', 'comment'],
+    #package_data = {'feedback':['media/*.js','media/*.css','media/images/*','CREDITS']},
     packages=[
         'feedback',
     ],
