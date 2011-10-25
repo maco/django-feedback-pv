@@ -16,7 +16,19 @@ feedback.init = function(config) {
 };
 
 feedback.done = function(config) {
-    return function() {
+    return function(data) {
+    	config.popup.find('.error').addClass("hiding");
+    	data = eval('(' + data + ')');
+    	if (data.error) {
+    		config.popup.find('.general.error').removeClass("hiding").text(data.error);
+    		return;
+    	}
+    	if (data.errors) {
+    		for (var key in data.errors) {
+    			config.popup.find('.error.' + key).removeClass("hiding").text(data.errors[key][0]);
+    		}
+    		return;
+    	}
         config.popup.removeClass('loading');
         config.popup.addClass('thanks');
         config.popup.find('textarea').val('');
@@ -26,7 +38,7 @@ feedback.done = function(config) {
 };
 feedback.error = function(config) {
 	return function (jqXHR, textStatus, errorThrown) {
-        config.popup.find('.error.hiding').removeClass("hiding").text("There was a problem submitting your feedback.");
+        config.popup.find('.error.general').removeClass("hiding").text("There was a problem submitting your feedback.");
 	};
 };
 
