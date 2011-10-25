@@ -42,6 +42,12 @@ should be exposed as /media/feedback.
 Feedback will be stored into the database and also emailed to the email addresses
 listed in the MANAGERS setting.
 
+The optional setting FEEDBACK_BLOCKED_IPS can be set to an array of IP addresses
+to block, such as:
+
+    FEEDBACK_BLOCKED_IPS = ["91.212.226.143"]
+
+
 ---
 
 Copyright (C) 2011 POPVOX.com
