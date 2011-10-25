@@ -1,6 +1,6 @@
 # Create your views here.
 from django.contrib.sites.models import Site
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseForbidden
 from django.utils.encoding import force_unicode
 from django.core.mail import mail_managers
 from django.core.validators import validate_email
@@ -20,6 +20,8 @@ def sanitize(errors):
 def handle_ajax(request):
     if not request.POST:
         return HttpResponse(json.dumps({'error':'no post received'}))
+    if request.META.get("REMOTE_ADDR", "") in getattr(settings, "FEEDBACK_BLOCKED_IPS", []):
+        return HttpResponseForbidden("IP address blocked.")
     try:
         if not "body" in request.POST or request.POST["body"].strip() != "...":
             return HttpResponse(json.dumps({'errors':{'text':
