@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseForbidden
 from django.utils.encoding import force_unicode
 from django.core.mail import mail_managers
 from django.core.validators import validate_email
+from django.conf import settings
 
 import re
 import json
