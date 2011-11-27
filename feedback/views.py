@@ -65,8 +65,10 @@ def handle_ajax(request):
 
         mail_managers('Feedback: ' + (re.sub(r"\s", " ", f.text[0:20])
                                 if f.subject.strip() == "" else f.subject),
-                      'From: %s \n\n %s \n\n' %
-                      (frominfo,
+                      '%sFrom: %s \n\n %s \n\n' %
+                      (
+                       request.META["HTTP_REFERER"] + "\n" if "HTTP_REFERER" in request.META else "",
+                       frominfo,
                        f.text,
                        #getattr(settings, 'SITE_ROOT_URL', "http://" + request.META["SERVER_NAME"]) + reverse('admin:feedback_feedback_change', args=[f.id])
                       ),
