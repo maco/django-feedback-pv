@@ -1,7 +1,7 @@
 <div id="feedback_button" class="white left normal"><a href="/feedback/">feedback</a></div>
 <div class="hiding">
 <div id="feedback_popup" class="colorbox" style="width: 500px">
-    <h1>Feedback</h1>
+    <h5>Feedback</h5>
 	{% if not feedback_text %}
     	<p style="margin-bottom: 0">We would be happy to consider any feedback you have.</p>
 	{% else %}
@@ -19,7 +19,7 @@
             <textarea name="text"></textarea>
             <div class="text error"> </div>
         <div class="buttons">
-            <button>Send</button>
+            <a>Send</a>
         </div>
     </form>
     <div class="thanks hiding">Thank you for your feedback!</div>
