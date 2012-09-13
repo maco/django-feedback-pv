@@ -10,7 +10,7 @@ setup(
     version='0.5',
     description='A pluggable user feedback app',
     author='POPVOX.com',
-    author_email='info@popvox.com',
+    author_email='feedback@popvox.com',
     license='GNU Affero General Public License',
     url='https://github.com/tauberer/django-feedback-pv',
     keywords = ['django', 'feedback', 'ajax', 'user', 'customer', 'comment'],

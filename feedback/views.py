@@ -63,7 +63,7 @@ def handle_ajax(request):
             except:
                 pass
 
-        mail_managers('Feedback: ' + (re.sub(r"\s", " ", f.text[0:20])
+        mail_managers((re.sub(r"\s", " ", f.text[0:20])
                                 if f.subject.strip() == "" else f.subject),
                       '%sFrom: %s \n\n %s \n\n' %
                       (
